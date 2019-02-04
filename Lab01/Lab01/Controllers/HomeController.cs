@@ -10,7 +10,7 @@ namespace Lab01.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("~/Views/Other/Details.cshtml");
         }
 
         public ActionResult About()
