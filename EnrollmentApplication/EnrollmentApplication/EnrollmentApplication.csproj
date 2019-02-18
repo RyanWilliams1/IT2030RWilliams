@@ -137,6 +137,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902110244135_InitialCreate.cs" />
+    <Compile Include="Migrations\201902110244135_InitialCreate.Designer.cs">
+      <DependentUpon>201902110244135_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902172357507_AddBlogUrl.cs" />
+    <Compile Include="Migrations\201902172357507_AddBlogUrl.Designer.cs">
+      <DependentUpon>201902172357507_AddBlogUrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902180048393_AddBlogUrl1.cs" />
+    <Compile Include="Migrations\201902180048393_AddBlogUrl1.Designer.cs">
+      <DependentUpon>201902180048393_AddBlogUrl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902180127258_AddBlogUrl2.cs" />
+    <Compile Include="Migrations\201902180127258_AddBlogUrl2.Designer.cs">
+      <DependentUpon>201902180127258_AddBlogUrl2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\EnrollmentDBContext.cs" />
@@ -200,6 +217,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902110244135_InitialCreate.resx">
+      <DependentUpon>201902110244135_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902172357507_AddBlogUrl.resx">
+      <DependentUpon>201902172357507_AddBlogUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902180048393_AddBlogUrl1.resx">
+      <DependentUpon>201902180048393_AddBlogUrl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902180127258_AddBlogUrl2.resx">
+      <DependentUpon>201902180127258_AddBlogUrl2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -23,6 +23,18 @@
         <th>
             @Html.DisplayNameFor(model => model.Grade)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssignedCampus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentSemester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentYear)
+        </th>
         <th></th>
     </tr>
 
@@ -39,6 +51,18 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Grade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignedCampus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnrollmentSemester)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnrollmentYear) 
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.EnrollmentID }) |
