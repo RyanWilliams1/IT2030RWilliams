@@ -153,6 +153,14 @@
     <Compile Include="Migrations\201902180127258_AddBlogUrl2.Designer.cs">
       <DependentUpon>201902180127258_AddBlogUrl2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902241623075_AddBlogUrl3.cs" />
+    <Compile Include="Migrations\201902241623075_AddBlogUrl3.Designer.cs">
+      <DependentUpon>201902241623075_AddBlogUrl3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902241637162_AddBlogUrl4.cs" />
+    <Compile Include="Migrations\201902241637162_AddBlogUrl4.Designer.cs">
+      <DependentUpon>201902241637162_AddBlogUrl4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Enrollment.cs" />
@@ -230,6 +238,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902180127258_AddBlogUrl2.resx">
       <DependentUpon>201902180127258_AddBlogUrl2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902241623075_AddBlogUrl3.resx">
+      <DependentUpon>201902241623075_AddBlogUrl3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902241637162_AddBlogUrl4.resx">
+      <DependentUpon>201902241637162_AddBlogUrl4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
