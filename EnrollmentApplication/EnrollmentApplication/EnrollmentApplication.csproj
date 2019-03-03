@@ -161,10 +161,15 @@
     <Compile Include="Migrations\201902241637162_AddBlogUrl4.Designer.cs">
       <DependentUpon>201902241637162_AddBlogUrl4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903031606121_Update.cs" />
+    <Compile Include="Migrations\201903031606121_Update.Designer.cs">
+      <DependentUpon>201903031606121_Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\EnrollmentDBContext.cs" />
+    <Compile Include="Models\InvalidCharsAttribute.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -244,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902241637162_AddBlogUrl4.resx">
       <DependentUpon>201902241637162_AddBlogUrl4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903031606121_Update.resx">
+      <DependentUpon>201903031606121_Update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -9,7 +9,7 @@ namespace EnrollmentApplication.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "EnrollmentApplication.Models.EnrollmentDBContext";
         }
 

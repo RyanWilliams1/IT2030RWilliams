@@ -50,7 +50,7 @@ namespace EnrollmentApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Enrollment ID,Student ID,Course ID,Grade,IsActive,Assigned Campus,Enrollment Semester,Enrollment Year")] Enrollment enrollment)
+        public ActionResult Create([Bind(Include = "Enrollment ID,Student ID,Course ID,Grade,IsActive,Assigned Campus,Enrollment Semester,Enrollment Year,Notes")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {

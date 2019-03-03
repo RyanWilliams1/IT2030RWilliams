@@ -31,5 +31,8 @@ namespace EnrollmentApplication.Models
         [Range(2018, 9999)]
         public virtual int EnrollmentYear { get; set; }
 
+        [InvalidChars("[~!@#$%^&*()_-[]{}|<>/]", ErrorMessage ="Notes cannot have invalid characters")]
+        public virtual string Notes { get; set; }
+
     } 
 }
