@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EnrollmentApplication.Models
 {
-    public class Student
+    public class Student : IValidatableObject
     {
         [Display(Name ="Student ID")]
         public virtual int      StudentID        { get; set; }
@@ -21,5 +21,48 @@ namespace EnrollmentApplication.Models
         [Display(Name ="First Name")]
         public virtual string   StudentFirstName { get; set; }
 
+        [Required]
+        [Display(Name = "Address 1")]
+        public virtual string Address1 { get; set; }
+
+        [Required]
+        [Display(Name = "Address 2")]
+        public virtual string Address2 { get; set; }
+
+        [Required]
+        public virtual string City { get; set; }
+
+        [Required]
+        [Display(Name = "Zip Code")]
+        public virtual string Zipcode { get; set; }
+
+        [Required]
+        public virtual string State { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            // Validation 1 : Address2 and Address 1 not the same
+            if(Address1 == Address2)
+            {
+                yield return new ValidationResult("Address 2 cannot be the same as Address 1");
+            }
+
+            // Validation 2 : State is 2 digits
+            int CountState = State.Length;
+
+            if(CountState < 2 || CountState > 2)
+            {
+                yield return new ValidationResult("Enter a 2 digit State code ");
+            }
+
+            // Validation 3 : ZipCode is 5 digits
+            int CountZip = Zipcode.Length;
+
+            if (CountZip < 5 || CountZip > 5)
+            {
+                yield return new ValidationResult("Enter a 5 digit Zipcode");
+            }
+            
+        }
     }
 }

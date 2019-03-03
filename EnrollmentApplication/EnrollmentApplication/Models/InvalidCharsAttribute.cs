@@ -20,8 +20,8 @@ namespace EnrollmentApplication.Models
         {
             if(value != null)
             {
-                
-                if (invalidChars.Contains("[~!@#$%^&*()_-[]{}|<>/]") == true)
+                var valueAsString = value.ToString();
+                if ( valueAsString.Contains(invalidChars) )
                 {
                     var errormessage = FormatErrorMessage(validationContext.DisplayName);
 
