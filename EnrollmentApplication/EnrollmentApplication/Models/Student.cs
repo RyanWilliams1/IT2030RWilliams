@@ -21,22 +21,22 @@ namespace EnrollmentApplication.Models
         [Display(Name ="First Name")]
         public virtual string   StudentFirstName { get; set; }
 
-        [Required]
+        
         [Display(Name = "Address 1")]
         public virtual string Address1 { get; set; }
 
-        [Required]
+        
         [Display(Name = "Address 2")]
         public virtual string Address2 { get; set; }
 
-        [Required]
+        
         public virtual string City { get; set; }
 
-        [Required]
+        
         [Display(Name = "Zip Code")]
         public virtual string Zipcode { get; set; }
 
-        [Required]
+        
         public virtual string State { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
@@ -44,7 +44,7 @@ namespace EnrollmentApplication.Models
             // Validation 1 : Address2 and Address 1 not the same
             if(Address1 == Address2)
             {
-                yield return new ValidationResult("Address 2 cannot be the same as Address 1");
+                yield return (new ValidationResult("Address 2 cannot be the same as Address 1"));
             }
 
             // Validation 2 : State is 2 digits
@@ -52,7 +52,7 @@ namespace EnrollmentApplication.Models
 
             if(CountState < 2 || CountState > 2)
             {
-                yield return new ValidationResult("Enter a 2 digit State code ");
+                yield return (new ValidationResult("Enter a 2 digit State code "));
             }
 
             // Validation 3 : ZipCode is 5 digits
@@ -60,7 +60,7 @@ namespace EnrollmentApplication.Models
 
             if (CountZip < 5 || CountZip > 5)
             {
-                yield return new ValidationResult("Enter a 5 digit Zipcode");
+                yield return (new ValidationResult("Enter a 5 digit Zipcode"));
             }
             
         }
