@@ -12,12 +12,31 @@ namespace EnrollmentApplication.Controllers
 {
     public class StudentsController : Controller
     {
-        private EnrollmentDBContext db = new EnrollmentDBContext();
+        private EnrollmentDBContext EnrollmentDBContext = new EnrollmentDBContext();
+
+        public ActionResult StudentOfTheMonth()
+        {
+            var student = GetStudent();
+            return PartialView("_StudentOfTheMonth", student);
+
+        }
+    
+        private Student GetStudent()
+        {
+            //Gets Random Student
+            var student = EnrollmentDBContext.Students
+                .OrderBy(a => System.Guid.NewGuid())
+                .First();
+
+            return student;
+        }
+
+
 
         // GET: Students
         public ActionResult Index()
         {
-            return View(db.Students.ToList());
+            return View(EnrollmentDBContext.Students.ToList());
         }
 
         // GET: Students/Details/5
@@ -27,7 +46,7 @@ namespace EnrollmentApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = EnrollmentDBContext.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -50,8 +69,8 @@ namespace EnrollmentApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Students.Add(student);
-                db.SaveChanges();
+                EnrollmentDBContext.Students.Add(student);
+                EnrollmentDBContext.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +84,7 @@ namespace EnrollmentApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = EnrollmentDBContext.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -82,8 +101,8 @@ namespace EnrollmentApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(student).State = EntityState.Modified;
-                db.SaveChanges();
+                EnrollmentDBContext.Entry(student).State = EntityState.Modified;
+                EnrollmentDBContext.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(student);
@@ -96,7 +115,7 @@ namespace EnrollmentApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = EnrollmentDBContext.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -109,9 +128,9 @@ namespace EnrollmentApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Student student = db.Students.Find(id);
-            db.Students.Remove(student);
-            db.SaveChanges();
+            Student student = EnrollmentDBContext.Students.Find(id);
+            EnrollmentDBContext.Students.Remove(student);
+            EnrollmentDBContext.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -119,7 +138,7 @@ namespace EnrollmentApplication.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                EnrollmentDBContext.Dispose();
             }
             base.Dispose(disposing);
         }

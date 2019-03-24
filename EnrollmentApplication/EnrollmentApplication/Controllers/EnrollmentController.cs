@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -13,6 +14,34 @@ namespace EnrollmentApplication.Controllers
     public class EnrollmentController : Controller
     {
         private EnrollmentDBContext db = new EnrollmentDBContext();
+
+        public ActionResult StudentSearch(string q)
+        {
+            var students = GetStudents(q);
+            return PartialView("_StudentSearch", students);
+        }
+
+        private List<Student> GetStudents(string searchString)
+        {
+            return db.Students
+                .Where(a => a.StudentFirstName.Contains(searchString) || a.StudentLastName.Contains(searchString))
+                .ToList();
+
+        }
+
+        public ActionResult CourseSearch(string q)
+        {
+            var courses = GetCourses(q);
+            return PartialView("_CourseSearch", courses);
+        }
+
+        private List<Course> GetCourses(string searchString)
+        {
+            return db.Courses
+                .Where(a => a.CourseTitle.Contains(searchString) || a.CourseDescription.Contains(searchString))
+                .ToList();
+
+        }
 
         // GET: Enrollment
         public ActionResult Index()
