@@ -3,28 +3,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MVCMusicStoreApplication.Models;
 
 namespace MVCMusicStoreApplication.Controllers
 {
     public class ShoppingCartController : Controller
     {
+        MVCMusicStoreDBContext db = new MVCMusicStoreDBContext();
+
         // GET: ShoppingCart
         public ActionResult Index()
         {
-            return View();
+            ShoppingCart cart = ShoppingCart.GetCart(this.HttpContext);
+
+            ShoppingCartViewModel vm = new ShoppingCartViewModel()
+            {
+                CartItems = cart.GetCartItems(),
+                CartTotal = cart.GetCartTotal()
+            };
+
+            return View(vm);
         }
 
         //GET: ShoppingCart/AddToCart
-        public ActionResult AddToCart()
+        public ActionResult AddToCart(int id)
         {
-            throw new NotImplementedException();
+            ShoppingCart cart = ShoppingCart.GetCart(this.HttpContext);
+            cart.AddToCart(id);
+            return RedirectToAction("Index");
         }
 
         //POST: ShoppingCart/RemoveFromCart
         [HttpPost]
-        public ActionResult RemoveFromCart()
+        public ActionResult RemoveFromCart(int id)
         {
-            throw new NotImplementedException();
+            ShoppingCart cart = ShoppingCart.GetCart(this.HttpContext);
+
+            Album album = db.Carts.SingleOrDefault(c => c.RecordID == id).AlbumSelected;
+
+            int newItemCount = cart.RemoveFromCart(id);
+
+            ShoppingCartRemoveViewModel vm = new ShoppingCartRemoveViewModel()
+            {
+                DeleteId = id,
+                CartTotal = cart.GetCartTotal(),
+                ItemCount = newItemCount,
+                Message = album.Title + " has been removed from the cart"
+            };
+
+            return Json(vm);
         }
     }
 }
