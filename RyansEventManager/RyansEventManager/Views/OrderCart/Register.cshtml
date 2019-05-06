@@ -1,0 +1,29 @@
+﻿@model RyansEventManager.Models.Order
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+<div>
+    <table>
+
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.EventId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EventId)
+            </dd>
+
+            @Html.DropDownList("Tickets", null, htmlAttributes: new { @class = "form-control" })
+
+        </dl>
+
+            @Html.ActionLink("Add To Cart", "AddToCart", new { id = item. })
+
+    </table>
+</div>

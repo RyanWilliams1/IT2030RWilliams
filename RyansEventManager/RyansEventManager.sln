@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RyansEventManager", "RyansEventManager\RyansEventManager.csproj", "{EDEE4F9D-9A85-4752-99C4-99229721CA45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RyansEventManager.Tests", "RyansEventManager.Tests\RyansEventManager.Tests.csproj", "{B25641CA-A6E7-4341-A425-72D20E56D601}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDEE4F9D-9A85-4752-99C4-99229721CA45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDEE4F9D-9A85-4752-99C4-99229721CA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDEE4F9D-9A85-4752-99C4-99229721CA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDEE4F9D-9A85-4752-99C4-99229721CA45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B25641CA-A6E7-4341-A425-72D20E56D601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B25641CA-A6E7-4341-A425-72D20E56D601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B25641CA-A6E7-4341-A425-72D20E56D601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B25641CA-A6E7-4341-A425-72D20E56D601}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8578CAA3-8A28-4269-94D2-4BCBDF71EE97}
+	EndGlobalSection
+EndGlobal

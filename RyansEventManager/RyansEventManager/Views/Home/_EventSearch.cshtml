@@ -1,0 +1,11 @@
+﻿@model IEnumerable<RyansEventManager.Models.Event>
+
+<div id="searchresults">
+    <ul>
+        @foreach (var item in Model)
+        {
+        <li>@Html.ActionLink(item.EventTitle, "Details", "Event", new { id = item.EventID}, null)</li>
+        
+        }
+    </ul>
+</div>

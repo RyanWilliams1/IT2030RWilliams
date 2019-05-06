@@ -1,0 +1,40 @@
+﻿@model RyansEventManager.Models.OrderCartViewModel
+
+@{
+    ViewBag.Title = "Order Cart";
+}
+
+@section Scripts{
+    <script src="~/Scripts/Apps/FindanEvent.js"></script>
+    <script src="~/Scripts/Apps/LastMinuteDeals.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}
+
+<h2>Here Are Your Tickets Ordered</h2>
+
+<br />
+<div id="update-message"></div>
+
+<div>
+    <table>
+        <tr>
+            <th>Event</th>
+            <th>Number of Tickets</th>
+        </tr>
+
+        @foreach (var item in Model.OrderItems)
+        {
+            <tr id="record-@item.RecordId">
+                <td>@item.EventSelected.EventTitle</td>
+                <t id="item-count-@item.RecordId">
+                    @item.Tickets</tid="item-count-@item.RecordId">
+                    <td><a href="#" data-id="@item.RecordID" class="RemoveLink">Remove</a></td>
+        </tr>
+    }
+    </table>
+
+    <button>
+        @Html.ActionLink("Add To Cart", "AddToCart", new { id = item.Event. })
+    </button>
+</div>
+

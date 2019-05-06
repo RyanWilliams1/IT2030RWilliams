@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row">
+    <div>
+        <h2>Welcome to Ryan's Event Manager</h2>
+        <p>
+            Find events in your community and never miss out again!
+        </p>
+    </div>
+
+    <div>
+        <img src="~/Content/Images/Events.jpg">
+    </div>
+
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Find and Event</div>
+        <div class="panel-body">
+            @using (Ajax.BeginForm("EventSearch", "Home",
+                new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.Replace,
+                    HttpMethod = "GET",
+                    OnFailure = "searchFailed",
+                    LoadingElementId = "ajax-loader",
+                    UpdateTargetId = "searchresults"
+                }))
+            {
+                <input type="text" name="a" />
+                <input type="text" name="q" />
+                <input type="submit" value="search" />
+                <img id="ajax-loader"
+                     src="@Url.Content("~/Content/Images/ajax-loader.gif")"
+                     style="display:none" />
+            }
+            <div id="searchresults"></div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <div id="lastminutedeal" class="col-md-4">
+        @Ajax.ActionLink("Click here to see the Last Minute Deals",
+     "LastMinuteDeal",
+     null,
+     new AjaxOptions
+     {
+         UpdateTargetId = "lastminutedeal",
+         InsertionMode = InsertionMode.Replace,
+         HttpMethod = "GET"
+     },
+     new { @class = "btn btn-primary" })
+    </div>
+
+
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/Apps/FindanEvent.js"></script>
+    <script src="~/Scripts/Apps/LastMinuteDeals.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}
